@@ -17,7 +17,7 @@ npm run build
 # run unit & end-to-end tests
 npm test
 
-
+# 项目待续，工作忙，只能闲暇时间做。
 ```
 
 ---
