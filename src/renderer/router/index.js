@@ -14,13 +14,13 @@ export default new Router({
           {
             path: '/findMusic',
             name: '发现音乐',
-            component: require('@/components/indexPage/findMusic').default,
+            component: require('@/components/indexPage/findMusicPage/findMusic').default,
             redirect: '/findMusic/recommend',
               children: [
                   {
                     path: '/findMusic/recommend',
                     name: '个性推荐',
-                    component: require('@/components/indexPage/findMusicPage/recommend').default
+                    component: require('@/components/indexPage/findMusicPage/recommendPage/recommend').default
                   },
                   {
                       path: '/findMusic/songList',

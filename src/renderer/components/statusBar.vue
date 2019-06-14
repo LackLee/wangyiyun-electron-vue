@@ -2,14 +2,18 @@
     <div id="mp">
 
         <div class="center">
-            <div class="pre center"></div>
-
-            <div class="pause-or-play center" @click="handle">
-                <span v-if="isPlay">| |</span>
-                <span class="play" v-else></span>
+            <div class="pre center">
+                <v-icon name="step-backward"/>
             </div>
 
-            <div class="next center"></div>
+            <div class="pause-or-play center" @click="handle">
+                <v-icon name="pause" v-if="isPlay" />
+                <v-icon name="play" class="play" v-else style="position: relative; left: 2px;"/>
+            </div>
+
+            <div  class="next center">
+                <v-icon name="step-forward"/>
+            </div>
         </div>
 
          <div class="time">
@@ -75,21 +79,7 @@
       margin: 0 30px;
   }
 
-  .pause-or-play > span {
-      text-align: center;
-      font-weight: bold;
 
-  }
-
-  .pause-or-play .play {
-      display: block;
-      width: 0;
-      height: 0;
-      border: 9px solid transparent;
-      border-left-color: #fff;
-      position: relative;
-      left: 5px;
-  }
 
   .pre {
       width: 30px;
@@ -114,26 +104,6 @@
       cursor: pointer;
   }
 
-  .pre:after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 0;
-      border: 6px solid transparent;
-      border-right-color: #fff;
-      position: relative;
-      left: -4px;
-  }
-  .next:after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 0;
-      border: 6px solid transparent;
-      border-left-color: #fff;
-      position: relative;
-      left: 4px;
-  }
 
   .pause-or-play:hover,
   .pre:hover,

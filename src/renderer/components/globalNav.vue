@@ -7,15 +7,18 @@
       </div>
 
       <div class="router-btn">
-        <button> < </button>
-        <button> > </button>
+          <button>
+              <v-icon name="angle-left" :inverse="true" scale="1.1"/>
+          </button>
+          <button>
+              <v-icon name="angle-right" :inverse="true" scale="1.1"/>
+          </button>
       </div>
 
       <div class="seo">
         <input type="text" placeholder="搜索音乐，视频，歌词，电台">
 
-        <s :style="`background-image:url(${icon})`" class="seo-icon"></s>
-
+        <v-icon name="search" :inverse="true" scale=".5" class="seo-icon"></v-icon>
 
         <div class="seo-list">
 
@@ -25,22 +28,23 @@
 
     <div class="nav-rt">
        <div class="account">
-          <div class="avatar background-image-cover" :style="`background-image:url(${icon})`"></div>
+          <div class="avatar background-image-cover" :style="`background-image:url(${avatar})`"></div>
           <p>lack.听听那冷雨</p>
           <i class="link"></i>
        </div>
 
        <div class="setting">
-           <i class="background-image-cover">t</i>
-           <i class="background-image-cover">m</i>
-           <i class="background-image-cover">s</i>
+           <v-icon class="background-image-cover" name="tshirt" :inverse="true"/>
+           <v-icon class="background-image-cover" name="envelope" :inverse="true"/>
+           <v-icon class="background-image-cover" name="cog" :inverse="true"/>
        </div>
 
         <div class="bom">
-            <i class="background-image-cover">x</i>
-            <i class="background-image-cover">m</i>
-            <i class="background-image-cover">f</i>
-            <i class="background-image-cover">c</i>
+            <v-icon class="background-image-cover external-link-square-alt" name="external-link-square-alt" :inverse="true"/>
+            <v-icon class="background-image-cover" name="minus" :inverse="true"/>
+            <v-icon class="background-image-cover" name="window-maximize" :inverse="true"/>
+            <v-icon class="background-image-cover" name="times" :inverse="true"/>
+
         </div>
     </div>
   </div>
@@ -50,7 +54,8 @@ export default {
   name: 'globalHead',
   data () {
     return {
-      icon: require('@/assets/logo.png')
+        icon: require('@/assets/logo.png'),
+        avatar: require('@/assets/5.jpg')
     }
   }
 }
@@ -106,7 +111,7 @@ export default {
   .router-btn {
     width: 50px;
     height: 20px;
-    border: 1px solid rgba(0,0,0, .3);
+    border: 1px solid rgba(0,0,0, .18);
     border-radius: 3px;
     margin-left: 50px;
     display:flex;
@@ -144,15 +149,13 @@ export default {
 
   .seo .seo-icon {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 5px;
+    top: 4px;
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-size: 12px 12px;
-    background-position: center;
-    background-repeat: no-repeat;
+    width: 12px;
+    height: 12px;
     z-index: 10;
+      cursor: pointer;
   }
 
   .seo input::-webkit-input-placeholder {
@@ -163,17 +166,18 @@ export default {
     width: 150px;
     display: flex;
     align-items: center;
-    opacity: .7;
       -webkit-app-region: no-drag;
   }
 
-  .account:hover {
+  .account:hover p{
       opacity: 1;
   }
 
   .account .avatar {
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
+      border-radius: 50%;
+      overflow: hidden;
       margin-right: 5px;
   }
 
@@ -185,6 +189,8 @@ export default {
       font-size:13px;
       color: rgba(255,255,255,1);
       cursor: pointer;
+      opacity: .7;
+
   }
 
   .account i {
@@ -204,19 +210,15 @@ export default {
     border-right: 1px solid rgba(0,0,0, .3);
     display: flex;
     justify-content: space-between;
+      align-items: center;
     -webkit-app-region: no-drag;
     padding-right: 20px;
   }
-  .setting i, .bom i {
-      width: 20px;
-      height: 20px;
-      background-color: #fff;
-      opacity: .6;
-      text-align: center;
-      color: #000;
+  .setting > *, .bom > * {
       cursor: pointer;
+      oapcity: .8;
   }
-  .setting i:hover, .bom i:hover {
+  .setting > *:hover, .bom > *:hover {
       opacity: 1;
   }
 
@@ -230,9 +232,10 @@ export default {
       padding-right: 20px;
   }
 
-  .bom i {
 
-  }
 
+    .external-link-square-alt {
+        transform: rotateZ(180deg);
+    }
 </style>
 

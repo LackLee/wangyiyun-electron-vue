@@ -25,6 +25,7 @@
     padding: 0;
     margin: 0;
     user-select: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   a, i, s, b, p, li, ul, ol, table, tr, td, tHead, tBody {
@@ -66,5 +67,24 @@
 
   ::-webkit-scrollbar {
     display: none !important;
+  }
+
+  /*.fa-icon {*/
+  /*  width: auto;*/
+  /*  height: 1em; !* 或任意其它字体大小相对值 *!*/
+
+  /*  !* 要在 Safari 中正常工作，需要再引入如下两行代码 *!*/
+  /*  max-width: 100%;*/
+  /*  max-height: 100%;*/
+  /*}*/
+
+  .swiper-pagination-bullets .swiper-pagination-bullet {
+    width: 18px;
+    height: 2px;
+    border-radius: 0;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #E83C3C !important;
   }
 </style>

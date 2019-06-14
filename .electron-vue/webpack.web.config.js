@@ -41,7 +41,10 @@ let webConfig = {
       {
         test: /\.js$/,
         use: 'babel-loader',
-        include: [ path.resolve(__dirname, '../src/renderer') ],
+        include: [
+            path.resolve(__dirname, '../src/renderer'),
+          path.resolve('node_modules/vue-awesome')
+        ],
         exclude: /node_modules/
       },
       {

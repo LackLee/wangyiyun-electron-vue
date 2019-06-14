@@ -5,7 +5,7 @@
     </div>
 </template>
 <script>
-    import findMusicNav from './findMusicPage/findMusicNav'
+    import findMusicNav from './findMusicNav'
     export default {
         name: '',
         data() {

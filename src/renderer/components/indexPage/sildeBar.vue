@@ -4,8 +4,8 @@
             <p class="title">
                 <span>{{ item.title }}</span>
                 <a v-if="item.type === 1">
-                    <i> + </i>
-                    <s></s>
+                    <v-icon name="plus-circle" class="icon"/>
+                    <v-icon name="angle-down" class="icon-s"/>
                 </a>
             </p>
             <div class="box" v-for="(val, i) in item.children"
@@ -16,7 +16,7 @@
                  }"
                  @click="goTo(val, item.type)"
             >
-                <i></i>
+                <v-icon :name="val.icon" class="icon"  scale="1"/>
                 <span>{{ val.name }}</span>
             </div>
         </div>
@@ -33,28 +33,28 @@
               title: '推荐',
                 type: 0,
               children: [
-                { name: '发现音乐', path: '/findMusic' },
-                { name: '私人FM', path: '/myFm' },
-                { name: '视频', path: '/video' },
-                { name: '朋友', path: '/friend' },
+                { name: '发现音乐', path: '/findMusic', icon: 'music' },
+                { name: '私人FM', path: '/myFm', icon: 'podcast' },
+                { name: '视频', path: '/video', icon: 'video' },
+                { name: '朋友', path: '/friend', icon: 'user-friends' },
               ]
             },
               {
                   title: '我的音乐',
                   type: 0,
                   children: [
-                      { name: '本地音乐', path: '/localMusic'},
-                      { name: '下载管理', path: '/downloadManager' },
-                      { name: '我的音乐盘', path: '/musicCloud' },
-                      { name: '我的收藏', path: '/collect' },
+                      { name: '本地音乐', path: '/localMusic', icon: 'headphones-alt'},
+                      { name: '下载管理', path: '/downloadManager', icon: 'download' },
+                      { name: '我的音乐盘', path: '/musicCloud', icon: 'cloud' },
+                      { name: '我的收藏', path: '/collect', icon: 'user-plus' },
                   ]
               },
               {
                   title: '创建的歌单',
                   type: 1,
                   children: [
-                      { name: '我喜欢的音乐', path: '/musicList' },
-                      { name: '初来驾到', path: '/musicList' },
+                      { name: '我喜欢的音乐', path: '/musicList', icon: 'heart' },
+                      { name: '初来驾到', path: '/musicList', icon: 'bars' },
 
                   ]
               },
@@ -62,7 +62,7 @@
                   title: '收藏的歌单',
                   type: 1,
                   children: [
-                      { name: '复古青年洗澡时的欢乐', path: '/musicList' },
+                      { name: '复古青年洗澡时的欢乐', path: '/musicList', icon: 'bars' },
                   ]
               },
           ]
@@ -108,29 +108,18 @@
         height: 15px;
     }
 
-    .title i {
+    .title .icon {
         display: inline-block;
         width: 15px;
-        line-height: 15px;
-        border-radius: 50%;
-        color: #fff;
-        background-color: rgba(0,0,0,.2);
-        text-align: center;
-        font-weight: bold;
+        height: 15px;
         margin-right: 5px;
         cursor: pointer;
     }
 
-    .title s {
+    .title .icon-s {
         display: inline-block;
-        width: 10px;
-        height: 10px;
-        border:1px solid rgba(0,0,0, .2);
-        border-top-color: transparent;
-        border-right-color: transparent;
-        transform: rotate(-45deg) scale(.7);
-        position: relative;
-        top: -2px;
+        width: 15px;
+        height: 15px;
         cursor: pointer;
     }
 
@@ -156,15 +145,9 @@
         /*background-color: #E6E7EA;*/
     }
 
-    .box i {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: rgba(0,0,0,.2);
+    .box .icon {
         vertical-align: bottom;
-        margin-right: 5px;
-
+        margin-right: 10px;
     }
 
     .box span {

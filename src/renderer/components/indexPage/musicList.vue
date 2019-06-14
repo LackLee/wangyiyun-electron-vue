@@ -86,7 +86,7 @@
                     <i></i>
                 </div>
             </div>
-            <table class="tb">
+            <table class="tb" v-if="step === 0">
                 <tHead>
                     <tr>
                       <td></td>
@@ -113,10 +113,14 @@
                     </tr>
                 </tbody>
             </table>
+
+           
+           <commend v-else-if="step === 1"></commend>
         </div>
     </div>
 </template>
 <script>
+import commend from './comm/commend'
     export default {
         name: '',
         data() {
@@ -133,7 +137,8 @@
         },
         created() {
 
-        }
+        },
+        components: { commend }
     }
 </script>
 <style scoped>
