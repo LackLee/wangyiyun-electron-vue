@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import slideBar from './indexPage/sildeBar'
+import slideBar from './index/sildeBar'
 export default {
   name: 'index',
   components: {

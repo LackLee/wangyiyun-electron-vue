@@ -44,7 +44,7 @@
                     [
                         {id: 5, tag: '歌舞双绝', total: 1314, author: '漂亮小姐姐', avatar: 1, isEye: false },
                         {id: 6, tag: '欧美范', total: 1314, author: '漂亮小姐姐', avatar: 2, isEye: false },
-                        {id: 7, tag: '文物双全', total: 1314, author: '漂亮小姐姐', avatar: 3, isEye: true },
+                        {id: 7, tag: '文武双全', total: 1314, author: '漂亮小姐姐', avatar: 3, isEye: true },
                         {id: 8, tag: '', total: 1314, author: '漂亮小姐姐', avatar: 4, isEye: true },
                         {id: 9, tag: '恬静依人', total: 1314, author: '漂亮小姐姐', avatar: 5, isEye: false },
                     ]

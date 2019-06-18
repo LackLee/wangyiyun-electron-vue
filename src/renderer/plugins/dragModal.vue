@@ -32,7 +32,7 @@
                 </div>
 
                 <p class="reset">
-                    <span>恢复默认排序</span>
+                    <span @click="reset">恢复默认排序</span>
                 </p>
             </div>
             <div class="footer center">
@@ -74,10 +74,7 @@
             },
             out(evt) {
                 this.drag(evt);
-                let h = this.boxHeight;
-                let len = this.list.length;
-                let newIndex = Math.round(this.cellTop / (h / len));
-                newIndex = newIndex < 0 ? 0 : newIndex > (len - 1)  ? (len - 1) : newIndex;
+                let newIndex = this.group();
                 this.$set(this.list, newIndex, this.hasMoveObject);
                 this.hasMoveObject = null;
                 this.offset = 0;
@@ -91,17 +88,25 @@
                 let cellTop = evt.pageY - offsetTop - this.offset;
                 if(cellTop < -25 || cellTop > this.boxHeight - 25) return null;
                 this.cellTop = cellTop;
-                let h = this.boxHeight;
-                let len = this.list.length;
-                let newIndex = Math.round(this.cellTop / (h / len));
-                newIndex = newIndex < 0 ? 0 : newIndex > (len - 1)  ? (len - 1) : newIndex;
+                let newIndex = this.group();
                 this.$set(this.list, this.oldIndex, this.list[newIndex]);
                 this.$set(this.list, newIndex, {});
                 this.oldIndex = newIndex;
             },
+            reset() {
+              let list = [...this.list];
+              list = list.sort((a, b) => a.id - b.id );
+              this.list = [...list];
+            },
             submit() {
               this.callback && this.callback(this.list);
               this.close();
+            },
+            group() {
+                let h = this.boxHeight;
+                let len = this.list.length;
+                let newIndex = Math.round(this.cellTop / (h / len));
+                return newIndex < 0 ? 0 : newIndex > (len - 1)  ? (len - 1) : newIndex;
             },
             show(list = [], callback) {
                 this.showActive = true;

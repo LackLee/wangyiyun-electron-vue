@@ -39,6 +39,7 @@
         height: 50px;
         border-bottom: 1px solid #e1e1e2;
         box-sizing: border-box;
+        margin-bottom: 25px;
     }
 
     .box {

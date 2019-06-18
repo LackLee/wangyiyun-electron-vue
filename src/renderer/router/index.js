@@ -14,85 +14,85 @@ export default new Router({
           {
             path: '/findMusic',
             name: '发现音乐',
-            component: require('@/components/indexPage/findMusicPage/findMusic').default,
+            component: require('@/components/index/findMusic/findMusic').default,
             redirect: '/findMusic/recommend',
               children: [
                   {
                     path: '/findMusic/recommend',
                     name: '个性推荐',
-                    component: require('@/components/indexPage/findMusicPage/recommendPage/recommend').default
+                    component: require('@/components/index/findMusic/recommend').default
                   },
                   {
                       path: '/findMusic/songList',
                       name: '歌单',
-                      component: require('@/components/indexPage/findMusicPage/songList').default
+                      component: require('@/components/index/findMusic/songList').default
                   },
                   {
                       path: '/findMusic/boradcastStation',
                       name: '电台',
-                      component: require('@/components/indexPage/findMusicPage/boradcastStation').default
+                      component: require('@/components/index/findMusic/boradcastStation').default
                   },
                   {
                       path: '/findMusic/rankingList',
                       name: '排行榜',
-                      component: require('@/components/indexPage/findMusicPage/rankingList').default
+                      component: require('@/components/index/findMusic/rankingList').default
                   },
                   {
                       path: '/findMusic/singer',
                       name: '歌手',
-                      component: require('@/components/indexPage/findMusicPage/singer').default
+                      component: require('@/components/index/findMusic/singer').default
                   },
                   {
                       path: '/findMusic/newMusic',
                       name: '最新音乐',
-                      component: require('@/components/indexPage/findMusicPage/newMusic').default
+                      component: require('@/components/index/findMusic/newMusic').default
                   }
             ]
           },
           {
               path: '/myFM',
               name: '私人FM',
-              component: require('@/components/indexPage/myFM').default
+              component: require('@/components/index/myFM').default
           },
           {
               path: '/video',
               name: '视频',
-              component: require('@/components/indexPage/video').default
+              component: require('@/components/index/video').default
           },
           {
               path: '/friend',
               name: '朋友',
-              component: require('@/components/indexPage/friend').default
+              component: require('@/components/index/friend').default
           },
           {
               path: '/localMusic',
               name: '本地音乐',
-              component: require('@/components/indexPage/localMusic').default
+              component: require('@/components/index/localMusic').default
           },
           {
               path: '/downloadManager',
               name: '下载管理',
-              component: require('@/components/indexPage/downloadManager').default
+              component: require('@/components/index/downloadManager').default
           },
           {
               path: '/musicCloud',
               name: '我的音乐云盘',
-              component: require('@/components/indexPage/musicCloud').default
+              component: require('@/components/index/musicCloud').default
           },
           {
               path: '/collect',
               name: '我的收藏',
-              component: require('@/components/indexPage/collect').default
+              component: require('@/components/index/collect').default
           },
           {
               path: '/musicList',
               name: '音乐列表',
-              component: require('@/components/indexPage/musicList').default
+              component: require('@/components/index/musicList').default
           },
           {
               path: '/searchList',
               name: '搜索列表',
-              component: require('@/components/indexPage/searchList').default
+              component: require('@/components/index/searchList').default
           },
       ]
     },
