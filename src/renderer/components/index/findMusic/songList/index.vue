@@ -1,7 +1,12 @@
 <template>
     <div id="songList">
         <div class="head">
-            <tagsModal :list="tags" @change="tagChange"/>
+            <tagsModal :list="tags"
+                       defaultText="全部歌单"
+                       @defaultChocie="tagChange"
+                       @change="tagChange"
+
+            />
         </div>
 
         <div class="hot-tag">
@@ -16,12 +21,28 @@
                 {{ item.name }}
             </span>
         </div>
+
+
+        <div id="list">
+            <box v-for="item in list"
+                 :key="item"
+                 :item="item"
+                 class="box"/>
+        </div>
+
+
+        <div class="footer">
+            <pagination @choice="choicePage" :total="1000"/>
+        </div>
+
+
     </div>
 </template>
 <script>
     import tagsModal from '@/components/index/comm/tagsModal'
     import data from './data'
-
+    import box from './songBox'
+    import pagination from '@/components/index/comm/pagination'
     const hotTags = [];
 
     data.map((v = {}) => hotTags.push(...v.children || []));
@@ -31,12 +52,14 @@
         data() {
             return {
                 tags: data,
-                hotTags
+                hotTags,
+                list: 30
             }
         },
         computed: {},
         methods: {
-            tagChange(item) {
+            tagChange(item = {}) {
+                console.log(item)
                 if(item.isShow) return null;
 
                 let newList = [], hotTags = [];
@@ -53,6 +76,10 @@
                 this.tags = [...newList];
                 this.hotTags = [...hotTags];
             },
+
+            choicePage(pageNum) {
+                console.log(`第${pageNum}页`)
+            }
         },
         mounted() {
 
@@ -61,7 +88,9 @@
 
         },
         components: {
-            tagsModal
+            tagsModal,
+            box,
+            pagination
         }
     }
 </script>
@@ -100,5 +129,24 @@
 
     .tag:hover {
         color: #333;
+    }
+
+    #list {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+
+   #list .box:nth-child(4n) {
+       margin-right: 0;
+   }
+
+    .footer {
+        width: 100%;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
     }
 </style>

@@ -14,7 +14,7 @@ export default new Router({
           {
             path: '/findMusic',
             name: '发现音乐',
-            component: require('@/components/index/findMusic/findMusic').default,
+            component: require('@/components/index/findMusic').default,
             redirect: '/findMusic/recommend',
               children: [
                   {
@@ -30,7 +30,7 @@ export default new Router({
                   {
                       path: '/findMusic/boradcastStation',
                       name: '电台',
-                      component: require('@/components/index/findMusic/boradcastStation').default
+                      component: require('@/components/index/findMusic/boradcast').default
                   },
                   {
                       path: '/findMusic/rankingList',
